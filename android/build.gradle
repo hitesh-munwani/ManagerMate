@@ -1,0 +1,33 @@
+
+// Root-level build.gradle (Project-level)
+
+buildscript {
+    ext {
+        // Set versions for build tools, SDKs, NDK, and Kotlin
+        buildToolsVersion = "34.0.0"
+        minSdkVersion = 23
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        ndkVersion = "28.0.12674087"
+        kotlinVersion = "1.9.24"  // Kotlin version compatible with Java 17
+    }
+
+    repositories {
+        google()        // Required for Android tools
+        mavenCentral()  // For Kotlin and other dependencies
+    }
+
+    dependencies {
+        // Use Android Gradle Plugin 8.0.0 for Java 17 compatibility
+        classpath("com.android.tools.build:gradle:8.0.0")  // Updated Android Gradle Plugin for Java 17
+
+        // React Native Gradle Plugin
+        classpath("com.facebook.react:react-native-gradle-plugin")
+
+        // Kotlin Gradle Plugin (Ensure Kotlin version is compatible with Java 17)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
+}
+
+// Apply the React Native plugin to the root project
+apply plugin: "com.facebook.react.rootproject"
